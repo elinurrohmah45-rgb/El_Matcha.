@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El_Matcha - Organic & Healthy Drinks</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tautan ke File CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" onclick="showPage('home-page')">El_Matcha</div>
+                <div class="search-bar">
+                    <input type="search" id="search-input" placeholder="Search products...">
+                </div>
+                <div class="header-right">
+                    <div class="user-greeting">Hello, Guest</div>
+                    <div class="header-icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                        <div class="cart-icon" onclick="showPage('cart-page')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.658-.463 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z" /></svg>
+                            <span id="cart-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom-nav">
+                <button class="all-categories-btn" onclick="showPage('shop-page')">All Categories ▼</button>
+                <nav>
+                    <span class="nav-link" data-page="home-page">Home</span>
+                    <span class="nav-link" data-page="shop-page">Shop</span>
+                    <span class="nav-link" data-page="pages-page">Pages</span>
+                    <span class="nav-link" data-page="contact-page">Contact</span>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Home Page -->
+        <div id="home-page" class="page">
+            <div class="hero-section">
+                <div class="hero-gallery">
+                    <img src="images/matcha powder.jpg" alt="Matcha Powder">
+                    <img src="images/matchalatte.jpg" alt="Iced Matcha Latte">
+                    <img src="images/pouring a matcha drink.jpg" alt="Pouring a matcha drink">
+                </div>
+                <div class="hero-content">
+                    <span class="natural-tag">100% natural</span>
+                    <h1>Organic & Healthy Drinks</h1>
+                    <p>Enjoy the goodness of authentic Japanese green tea. Each box is specially selected to provide the freshness and best taste of the season.</p>
+                    <button class="btn btn-accent" onclick="showPage('shop-page')">Shop Now</button>
+                </div>
+            </div>
+            <div class="features-section">
+                <div class="feature-item">
+                    <div class="icon">🍓</div>
+                    <h4>Curated Products</h4>
+                    <p>We explore the world's finest tea farms to present a matcha collection that is both unique and full of character.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">❤️</div>
+                    <h4>Handmade</h4>
+                    <p>We honor tradition. Our process combines heritage techniques with modern quality standards.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🍋</div>
+                    <h4>100% Natural</h4>
+                    <p>Our products are free from any chemicals, ensuring a healthy and pure experience.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🚚</div>
+                    <h4>Shipping</h4>
+                    <p>Your order is processed quickly and shipped securely, so you can enjoy your matcha without the wait.</p>
+                </div>
+            </div>
+            <h2 style="text-align:center; margin-top: 20px; margin-bottom: 30px;">Featured Products</h2>
+            <div id="featured-products-grid"></div>
+        </div>
+
+        <!-- Shop Page -->
+        <div id="shop-page" class="page hidden">
+            <h2 style="text-align:left;">All Products</h2>
+            <div id="category-filters" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
+            <div id="product-grid"></div>
+            <div id="no-products-message" class="hidden"><h3>Oops! No products found.</h3></div>
+        </div>
+        
+        <!-- Pages (About Us) -->
+        <div id="pages-page" class="page hidden">
+            <h2>About Us</h2>
+            <h3> El_Matcha - Oase Matcha Asli Jepang</h3>
+            <p>Kami hadir untuk memenuhi kebutuhan matcha berkualitas tinggi Anda. Dapatkan pengalaman rasa dan manfaat kesehatan terbaik dalam setiap sajian.</p>
+            <h3>Apa yang membuat kami spesial?</h3>
+            <p>🍵 100% Otentik dari Jepang: Matcha kami diimpor langsung dari perkebunan teh terkemuka di Kyoto, Jepang, untuk menjamin keaslian dan kualitas terbaik.</p>
+            <p>🌿 Kualitas Terjamin: Kami menawarkan Ceremonial Grade untuk ritual minum teh yang khidmat dan Culinary Grade untuk kreativitas dapur Anda.Keduanya memiliki warna hijau cerah dan tekstur super halus, tanda matcha segar berkualitas.</p>  
+            <p>💪 Penuh Manfaat Kesehatan:</p>    
+            <p>- Kaya akan antioksidan untuk melawan radikal bebas.</p>        
+            <p>- Meningkatkan energi dan fokus secara alami berkat L-theanine.</p>       
+            <p>- Mendukung metabolisme dan kesehatan tubuh secara keseluruhan.</p>        
+            <p> versatile Sangat Serbaguna: Sempurna untuk diminum langsung, dibuat menjadi matcha latte yang creamy, atau ditambahkan ke dalam resep kue, es krim, dan makanan sehat Anda.</p>  
+            <p> 🚚 Pengiriman Cepat & Layanan Pelanggan Terbaik:</p>  
+            <p>   Kami berkomitmen untuk memberikan pengalaman berbelanja yang mudah dan menyenangkan bagi Anda.</p>
+            <h3>Jam Operasional Toko:</h3>
+            <p> *Senin - Jumat: 09.00 - 17.00</p>
+            <p>*Sabtu: 09.00 - 14.00 </p>
+            <p>*pesanan setelah jam operasional akan di proses di hari kerja berikutnya. </p>
+            <h3>Jangan lupa ikuti toko kami untuk mendapatkan update produk terbaru dan promo menarik.</h3>
+            <h3>SELAMAT BERBELANJA!!</h3>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page hidden">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div class="form-group"><label>Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email</label><input type="email" required></div>
+                <div class="form-group"><label>Message</label><textarea rows="5" required></textarea></div>
+                <button type="submit" class="btn btn-primary btn-full-width">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cart-page" class="page hidden">
+            <h2>My Cart</h2>
+            <div id="cart-content">
+                <ul id="cart-items"></ul>
+                <div id="empty-cart-message"><p>Your cart is empty.</p><button class="btn btn-primary" onclick="showPage('shop-page')">Start Shopping</button></div>
+                <div id="cart-summary" style="margin-top: 20px; text-align: right;">
+                    <h3>Total: <span id="cart-total">Rp 0</span></h3>
+                    <button id="checkout-btn" class="btn btn-primary btn-full-width">Checkout</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Checkout Page -->
+        <div id="checkout-page" class="page hidden">
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <h3>Shipping Address</h3>
+                <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" required></div>
+                <div class="form-group"><label for="address">Address</label><input type="text" id="address" required></div>
+                <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" required></div>
+                <div class="form-group"><label for="shipping">Shipping Method</label><select id="shipping"><option value="reguler">Regular (Rp 15.000)</option><option value="express">Express (Rp 30.000)</option></select></div>
+                <div id="order-summary" style="background-color: var(--secondary-color); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <h3>Order Summary</h3>
+                    <p>Subtotal: <span id="summary-subtotal"></span></p>
+                    <p>Shipping: <span id="summary-shipping"></span></p>
+                    <p><strong>Total: <span id="summary-total"></span></strong></p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width" style="margin-top: 20px;">Proceed to Payment</button>
+            </form>
+        </div>
+
+        <!-- Payment Page -->
+        <div id="payment-page" class="page hidden">
+            <h2>Select Payment Method</h2>
+            <div id="payment-details" style="background-color: var(--secondary-color); padding: 15px; border-radius: 8px; margin-bottom: 20px;"><p><strong>Total Bill: <span id="payment-total"></span></strong></p></div>
+            <div class="payment-options">
+                <div class="payment-option" data-method="va" style="padding: 15px; border: 1px solid var(--border-color); border-radius: 5px; margin-bottom: 10px; cursor: pointer;"><h4>Virtual Account</h4></div>
+                <div class="payment-option" data-method="cc" style="padding: 15px; border: 1px solid var(--border-color); border-radius: 5px; margin-bottom: 10px; cursor: pointer;"><h4>Credit/Debit Card</h4></div>
+                <div class="payment-option" data-method="ewallet" style="padding: 15px; border: 1px solid var(--border-color); border-radius: 5px; margin-bottom: 10px; cursor: pointer;"><h4>E-Wallet</h4></div>
+                <div class="payment-option" data-method="QR" style="padding: 15px; border: 1px solid var(--border-color);border-radius: 5px; margin-bottom: 10px; cursor: pointer;"><h4>QR</h4></div>
+            </div>
+            <button id="pay-now-btn" class="btn btn-primary btn-full-width" style="margin-top: 20px;" disabled>Pay Now</button>
+        </div>
+
+        <!-- Confirmation Page -->
+        <div id="confirmation-page" class="page hidden">
+            <div style="text-align: center; padding: 40px 0;">
+                 <h2 style="border: none;">Payment Successful!</h2>
+                <p>Thank you! Your Order ID is: <strong id="order-number"></strong></p>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="goHomeAndReset()">Back to Home</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2025 El_Matcha. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <!-- Tautan ke File JavaScript Eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
